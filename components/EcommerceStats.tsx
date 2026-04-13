@@ -4,6 +4,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform } from 'framer-motion';
 
 const Counter = ({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) => {
+  const [display, setDisplay] = useState("0");
+  const [mounted, setMounted] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   
@@ -17,12 +19,20 @@ const Counter = ({ value, suffix = "", duration = 2 }: { value: number; suffix?:
   );
 
   useEffect(() => {
-    if (isInView) {
+    setMounted(true);
+    const unsubscribe = displayValue.on("change", (latest) => {
+      setDisplay(latest);
+    });
+    return () => unsubscribe();
+  }, [displayValue]);
+
+  useEffect(() => {
+    if (isInView && mounted) {
       spring.set(value);
     }
-  }, [isInView, value, spring]);
+  }, [isInView, value, spring, mounted]);
 
-  return <motion.span ref={ref}>{displayValue}</motion.span>;
+  return <span ref={ref}>{mounted ? display : "0"}</span>;
 };
 
 const EcommerceStats = () => {
