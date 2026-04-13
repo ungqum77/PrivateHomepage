@@ -5,8 +5,13 @@ import VibeCoding from "@/components/VibeCoding";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { getPortfolioItems } from "@/app/actions/portfolioActions";
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const items = await getPortfolioItems();
+
   return (
     <main className="min-h-screen bg-background selection:bg-primary selection:text-on-primary">
       <Navbar />
@@ -14,7 +19,7 @@ export default function Home() {
         <Hero />
         <Expertise />
         <VibeCoding />
-        <Portfolio />
+        <Portfolio items={items} />
         <Contact />
       </div>
       <Footer />
