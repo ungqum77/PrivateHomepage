@@ -44,20 +44,32 @@ const Portfolio = ({ items }: PortfolioProps) => {
                       <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
                     </div>
                     
-                    {/* Debug URL Overlay (Visible for verification) */}
-                    <div className="absolute top-6 left-0 right-0 z-30 bg-black/80 p-1">
-                      <p className="text-[7px] font-mono text-primary truncate px-1" title={imageUrl}>
-                        SRC: {imageUrl}
+                    {/* Enhanced Debug URL Overlay */}
+                    <div className="absolute top-0 left-0 right-0 z-40 bg-red-600 p-2 border-b border-white">
+                      <p className="text-[10px] font-mono text-white break-all leading-tight">
+                        <span className="font-black">[DEBUG URL]</span> {imageUrl}
                       </p>
                     </div>
                     
                     {/* Project Image */}
-                    <div className="relative flex-1 h-full overflow-hidden">
+                    <div className="relative flex-1 h-full overflow-hidden bg-zinc-800 flex items-center justify-center">
                       <img
                         alt={title}
                         src={imageUrl}
-                        className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const errDiv = target.parentElement?.querySelector('.error-msg') as HTMLElement;
+                          if (errDiv) errDiv.style.display = 'flex';
+                        }}
                       />
+                      {/* Error Message Display */}
+                      <div className="error-msg hidden absolute inset-0 flex-col items-center justify-center bg-zinc-900 border-2 border-dashed border-red-500/50 p-4 text-center">
+                        <span className="material-symbols-outlined text-red-500 text-3xl mb-2">error</span>
+                        <p className="text-[10px] text-red-400 font-bold">IMAGE FAILED TO LOAD</p>
+                        <p className="text-[8px] text-zinc-500 mt-1 uppercase tracking-tighter">Check Supabase RLS Policy & URL</p>
+                      </div>
                       <a 
                         href={url} 
                         target="_blank" 

@@ -29,16 +29,15 @@ const EcommerceStats = () => {
         <div className="flex-1 space-y-6">
           <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">SUCCESS METRIC 01</span>
           <div className="flex items-baseline gap-2 sm:gap-4 overflow-hidden">
-            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-primary/20">₩</span>
             <div className="text-5xl sm:text-7xl md:text-8xl xl:text-9xl font-black tracking-tighter text-white tabular-nums">
-              <Counter value={1200000000} />
+              <Counter value={25000} />
             </div>
-            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-primary/30">+</span>
+            <span className="text-2xl sm:text-4xl md:text-5xl font-black text-primary/30 ml-1">개+</span>
           </div>
           <div className="space-y-2">
-            <h3 className="text-xl font-bold uppercase tracking-tight text-white/90">누적 판매액</h3>
+            <h3 className="text-xl font-bold uppercase tracking-tight text-white/90">누적 판매량</h3>
             <p className="text-on-surface-variant max-w-sm font-light leading-relaxed text-sm">
-              글로벌 럭셔리 시장 전반에 걸친 고속 거래 엔지니어링 수행.
+              정밀한 시장 분석과 물류 최적화를 통한 성공적인 커머스 제품 공급.
             </p>
           </div>
         </div>
