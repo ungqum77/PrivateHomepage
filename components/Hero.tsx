@@ -8,11 +8,11 @@ const Hero = () => {
           <div className="space-y-2">
             <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">PIONEER & VISIONARY</span>
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">
-              비즈니스와 코드의 결합, <br />집행자의 마인드셋.
+              전략은 날카롭게, <br />구현은 완벽하게.
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-on-surface-variant max-w-xl font-light leading-relaxed">
-            고빈도 커머스와 아키텍처 코드 사이의 간극을 메웁니다. <br />차세대 디지털 리더를 육성하고 비즈니스의 격을 높입니다.
+            복잡한 커머스 환경을 정교한 로직으로 설계합니다. <br />누구나 기술로 비즈니스를 키울 수 있도록, 실전에 강한 디지털 혁신가를 키워냅니다.
           </p>
           <div className="flex gap-4 pt-4">
             <button className="bg-primary text-on-primary px-10 py-4 font-bold uppercase text-sm tracking-widest hover:opacity-90 transition-opacity">포트폴리오 보기</button>
