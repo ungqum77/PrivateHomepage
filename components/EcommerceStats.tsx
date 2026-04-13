@@ -24,7 +24,7 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
 const EcommerceStats = () => {
   return (
     <section className="px-8 md:px-20 py-32 bg-black border-y border-white/5">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
         <div className="space-y-4">
           <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">SUCCESS METRIC 01</span>
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter whitespace-nowrap">
