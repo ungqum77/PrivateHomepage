@@ -28,7 +28,7 @@ const Counter = ({ value, suffix = "", duration = 2 }: { value: number; suffix?:
 const EcommerceStats = () => {
   return (
     <section className="px-8 md:px-20 py-32 bg-black border-y border-white/5">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
         <div className="space-y-4">
           <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">SUCCESS METRIC 01</span>
           <div className="text-6xl md:text-8xl font-black tracking-tighter">
@@ -38,7 +38,7 @@ const EcommerceStats = () => {
           </div>
           <h3 className="text-xl font-bold uppercase tracking-tight text-white/80">누적 판매액</h3>
           <p className="text-on-surface-variant max-w-sm font-light leading-relaxed">
-            High-velocity transaction engineering across global luxury markets.
+            글로벌 럭셔리 시장 전반에 걸친 고속 거래 엔지니어링 수행.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ const EcommerceStats = () => {
           </div>
           <h3 className="text-xl font-bold uppercase tracking-tight text-white/80">트래픽 전환율</h3>
           <p className="text-on-surface-variant max-w-sm font-light leading-relaxed">
-            Optimized conversion journeys through behavior-driven design patterns.
+            행동 기반 디자인 패턴을 통한 구매 전환 여정 최적화.
           </p>
         </div>
       </div>
