@@ -33,14 +33,13 @@ export async function getPortfolioItems() {
 
     if (!data) return [];
 
-    // 어떤 데이터 형식(null, string 등)이 들어와도 배열로 안전하게 강제 변환
-    return data.map(item => {
+    // 'Vibe Coding' Sanitizer: DB의 어떤 지저분한 주소도 깨끗한 영구 주소로 변환
+    const items = data.map(item => {
       let imageUrl = item.image_url || "";
       
-      // 'Vibe Coding' Magic: Signed URL을 Public URL로 실시간 자동 변환
       if (imageUrl.includes("/storage/v1/object/sign/")) {
         imageUrl = imageUrl.replace("/storage/v1/object/sign/", "/storage/v1/object/public/");
-        imageUrl = imageUrl.split('?')[0]; // 임시 토큰(?token=...) 제거
+        imageUrl = imageUrl.split('?')[0];
       }
 
       return {
