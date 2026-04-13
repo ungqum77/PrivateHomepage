@@ -27,11 +27,14 @@ const Portfolio = ({ items }: PortfolioProps) => {
                   <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
                 </div>
                 {/* Image Container with Scroll Hover */}
-                <div className="flex-1 relative overflow-hidden bg-black">
+                <div className="flex-1 relative overflow-hidden bg-[#1a1a1a]">
                   <img
                     alt={item.title}
-                    className="w-full absolute top-0 transition-all duration-[3000ms] ease-in-out group-hover:top-[-100%]"
-                    src={item.image_url || `https://via.placeholder.com/400x300/131313/white?text=${encodeURIComponent(item.title)}`}
+                    className="w-full absolute top-0 transition-all duration-[3000ms] ease-in-out group-hover:top-[-100%] min-h-full object-cover"
+                    src={item.image_url || `https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop`}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop';
+                    }}
                   />
                 </div>
                 {/* Link Overlay */}
