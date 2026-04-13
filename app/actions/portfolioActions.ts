@@ -48,6 +48,8 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
         tech_stack: Array.isArray(item.tech_stack) ? item.tech_stack : []
       };
     }) as PortfolioItem[];
+
+    return items;
   } catch (e) {
     console.error('Critical exception in getPortfolioItems:', e);
     return [];
