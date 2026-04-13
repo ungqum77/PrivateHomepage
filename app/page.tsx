@@ -19,10 +19,10 @@ export default async function Home() {
       <div className="pt-24">
         <Hero />
         <Expertise />
-        <EcommerceStats />
         <VibeCoding />
-        <Portfolio items={items} />
-        <Contact />
+        {/* <EcommerceStats /> */}
+        {/* <Portfolio items={items} /> */}
+        {/* <Contact /> */}
       </div>
       <Footer />
     </main>
