@@ -23,7 +23,7 @@ const Portfolio = ({ items }: PortfolioProps) => {
               <p className="text-on-surface-variant font-mono">No projects found in the repository.</p>
             </div>
           ) : (
-            safeItems.map((item) => {
+            safeItems.map((item, idx) => {
               if (!item) return null;
 
               // 각 필드별 안전장치
@@ -34,7 +34,7 @@ const Portfolio = ({ items }: PortfolioProps) => {
               const imageUrl = item.image_url || "";
 
               return (
-                <div key={item.id || Math.random()} className="group flex flex-col h-full">
+                <div key={item.id || idx} className="group flex flex-col h-full">
                   {/* Browser Mockup Style */}
                   <div className="relative aspect-[4/3] bg-zinc-900 overflow-hidden border border-white/10 rounded-sm">
                     {/* Header Dot UI */}
