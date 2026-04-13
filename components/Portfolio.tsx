@@ -44,6 +44,13 @@ const Portfolio = ({ items }: PortfolioProps) => {
                       <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
                     </div>
                     
+                    {/* Debug URL Overlay (Visible for verification) */}
+                    <div className="absolute top-6 left-0 right-0 z-30 bg-black/80 p-1">
+                      <p className="text-[7px] font-mono text-primary truncate px-1" title={imageUrl}>
+                        SRC: {imageUrl}
+                      </p>
+                    </div>
+                    
                     {/* Project Image */}
                     <div className="relative flex-1 h-full overflow-hidden">
                       <img
