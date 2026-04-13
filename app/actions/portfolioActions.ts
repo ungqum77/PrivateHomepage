@@ -33,9 +33,12 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
 
     if (!data) return [];
 
-    // 'Vibe Coding' Sanitizer: DB의 어떤 지저분한 주소도 깨끗한 영구 주소로 변환
+    // 'Vibe Coding' Sanitizer: 어떤 형식이든 image_url을 확실하게 찾아내어 세척
     const items = data.map(item => {
-      let imageUrl = item.image_url || "";
+      // 대소문자나 오타 가능성을 배제하기 위해 강제로 모든 형태의 image_url 검색
+      const rawItem = item as any;
+      let imageUrl = rawItem.image_url || rawItem.ImageUrl || rawItem.imageURL || rawItem.Image_Url || "";
+      imageUrl = String(imageUrl).trim();
       
       if (imageUrl.includes("/storage/v1/object/sign/")) {
         imageUrl = imageUrl.replace("/storage/v1/object/sign/", "/storage/v1/object/public/");
@@ -46,8 +49,8 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
         ...item,
         image_url: imageUrl,
         tech_stack: Array.isArray(item.tech_stack) ? item.tech_stack : []
-      };
-    }) as PortfolioItem[];
+      } as PortfolioItem;
+    });
 
     return items;
   } catch (e) {

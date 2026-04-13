@@ -53,10 +53,16 @@ const PortfolioItemCard = ({ item }: { item: PortfolioItem }) => {
           <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
         </div>
         
-        {/* Debug URL Overlay (Highly Visible) */}
+        {/* Debug URL Overlay / Key Inspector */}
         <div className="absolute top-5 left-0 right-0 z-40 bg-red-600 p-1 border-b border-white/20">
-          <p className="text-[8px] font-mono text-white truncate px-1">
-            [IMG] {imageUrl || "URL EMPTY"}
+          <p className="text-[8px] font-mono text-white leading-tight px-1">
+            {imageUrl ? (
+              <span className="truncate block">[IMG] {imageUrl}</span>
+            ) : (
+              <span className="block text-yellow-300 font-bold overflow-visible whitespace-normal">
+                [EMPTY] KEYS: {Object.keys(item).join(', ')}
+              </span>
+            )}
           </p>
         </div>
         
