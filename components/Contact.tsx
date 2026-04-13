@@ -44,7 +44,9 @@ const Contact = () => {
     <section className="px-8 md:px-20 py-32 border-t border-white/10 bg-black">
       <div className="max-w-6xl mx-auto">
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">함께 혁신을 만듭시다.</h2>
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase whitespace-pre-line">
+            증명할 준비가 되셨습니까?{"\n"}지금 시작하십시오.
+          </h2>
           <p className="text-xl text-on-surface-variant font-light leading-relaxed">
             전략적 핵심 포지션 제안, 강연 요청, 그리고 임팩트 있는 <br />커리큘럼 설계에 대해 언제든 열려 있습니다.
           </p>

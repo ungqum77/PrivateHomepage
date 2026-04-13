@@ -7,9 +7,9 @@ const Hero = () => {
         <div className="flex-1 space-y-8 z-10">
           <div className="space-y-2">
             <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">PIONEER & VISIONARY</span>
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-[1.1] uppercase">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[1.2] uppercase">
               <div className="whitespace-nowrap">전략은 날카롭게,</div>
-              <div className="whitespace-nowrap italic text-primary">구현은 완벽하게.</div>
+              <div className="whitespace-nowrap text-primary">구현은 완벽하게.</div>
             </h1>
           </div>
           <p className="text-xl md:text-2xl text-on-surface-variant max-w-xl font-light leading-relaxed">
