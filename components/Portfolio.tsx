@@ -53,32 +53,19 @@ const PortfolioItemCard = ({ item }: { item: PortfolioItem }) => {
           <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
         </div>
         
-        {/* Debug URL Overlay / Full Data Inspector */}
-        <div className="absolute top-5 left-0 right-0 z-40 bg-red-600 p-1 border-b border-white/20 overflow-hidden">
-          <p className="text-[7px] font-mono text-white leading-tight px-1 whitespace-normal break-all">
-            {imageUrl ? (
-              <span className="block">[IMG] {imageUrl}</span>
-            ) : (
-              <span className="block text-yellow-200">
-                [EMPTY] DATA: {JSON.stringify(item)}
-              </span>
-            )}
-          </p>
-        </div>
-        
         {/* Project Image Container */}
         <div className="relative flex-1 h-full overflow-hidden bg-zinc-800 flex items-center justify-center">
           {(!hasError && imageUrl) ? (
             <img
               alt={title}
               src={imageUrl}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out group-hover:scale-110"
               onError={() => setHasError(true)}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center bg-zinc-900 absolute inset-0 border-2 border-dashed border-red-500/20 p-4 text-center">
-              <span className="material-symbols-outlined text-red-500/40 text-3xl mb-1">image_not_supported</span>
-              <p className="text-[10px] text-zinc-600 font-bold uppercase tracking-tight">Image Load Failed</p>
+            <div className="flex flex-col items-center justify-center bg-zinc-900 absolute inset-0 border-2 border-dashed border-red-500/10 p-4 text-center">
+              <span className="material-symbols-outlined text-red-500/20 text-3xl mb-1">image_not_supported</span>
+              <p className="text-[10px] text-zinc-700 font-bold uppercase tracking-tight">Image Not Loaded</p>
             </div>
           )}
           <a 
