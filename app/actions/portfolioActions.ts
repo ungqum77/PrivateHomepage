@@ -15,22 +15,33 @@ export type PortfolioItem = {
 };
 
 export async function getPortfolioItems() {
-  if (!supabase) {
-    console.warn('Supabase is not configured. Returning empty portfolio.');
+  try {
+    if (!supabase) {
+      console.warn('Supabase is not configured. Returning empty portfolio.');
+      return [];
+    }
+
+    const { data, error } = await supabase
+      .from('portfolio_items')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching portfolio items:', error);
+      return [];
+    }
+
+    if (!data) return [];
+
+    // 어떤 데이터 형식(null, string 등)이 들어와도 배열로 안전하게 강제 변환
+    return data.map(item => ({
+      ...item,
+      tech_stack: Array.isArray(item.tech_stack) ? item.tech_stack : []
+    })) as PortfolioItem[];
+  } catch (e) {
+    console.error('Critical exception in getPortfolioItems:', e);
     return [];
   }
-
-  const { data, error } = await supabase
-    .from('portfolio_items')
-    .select('*')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching portfolio items:', error);
-    return [];
-  }
-
-  return data as PortfolioItem[];
 }
 
 export async function addPortfolioItem(formData: FormData, password?: string) {

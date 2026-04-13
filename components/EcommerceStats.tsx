@@ -1,38 +1,24 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
-import { motion, useInView, useSpring, useTransform } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
 
-const Counter = ({ value, suffix = "", duration = 2 }: { value: number; suffix?: string; duration?: number }) => {
+const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const [display, setDisplay] = useState("0");
   const [mounted, setMounted] = useState(false);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
-  
-  const spring = useSpring(0, {
-    duration: duration * 1000,
-    bounce: 0,
-  });
-  
-  const displayValue = useTransform(spring, (current) => 
-    Math.floor(current).toLocaleString() + suffix
-  );
 
   useEffect(() => {
-    setMounted(true);
-    const unsubscribe = displayValue.on("change", (latest) => {
-      setDisplay(latest);
-    });
-    return () => unsubscribe();
-  }, [displayValue]);
-
-  useEffect(() => {
-    if (isInView && mounted) {
-      spring.set(value);
+    try {
+      setMounted(true);
+      if (typeof value === 'number') {
+        setDisplay(value.toLocaleString());
+      }
+    } catch (e) {
+      console.error("Counter render error:", e);
+      setDisplay("0");
     }
-  }, [isInView, value, spring, mounted]);
+  }, [value]);
 
-  return <span ref={ref}>{mounted ? display : "0"}</span>;
+  return <span>{mounted ? display : "0"}{suffix}</span>;
 };
 
 const EcommerceStats = () => {
