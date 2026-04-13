@@ -21,7 +21,7 @@ export default async function Home() {
         <Expertise />
         <VibeCoding />
         {/* <EcommerceStats /> */}
-        {/* <Portfolio items={items} /> */}
+        <Portfolio items={items} />
         {/* <Contact /> */}
       </div>
       <Footer />
