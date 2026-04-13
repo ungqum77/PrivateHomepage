@@ -31,7 +31,7 @@ const Portfolio = ({ items }: PortfolioProps) => {
               const description = item.description || "";
               const url = item.url || "#";
               const techStack = Array.isArray(item.tech_stack) ? item.tech_stack : [];
-              const imageUrl = item.image_url || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop";
+              const imageUrl = item.image_url || "";
 
               return (
                 <div key={item.id || Math.random()} className="group flex flex-col h-full">
