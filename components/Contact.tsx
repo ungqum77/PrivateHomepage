@@ -42,98 +42,100 @@ const Contact = () => {
 
   return (
     <section className="px-8 md:px-20 py-32 border-t border-white/10 bg-black">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
-        <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">Let's Connect.</h2>
-        <p className="text-xl text-on-surface-variant font-light leading-relaxed">
-          Available for selective board positions, keynote speaking engagements, and high-impact curriculum design.
-        </p>
+      <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">함께 혁신을 만듭시다.</h2>
+          <p className="text-xl text-on-surface-variant font-light leading-relaxed">
+            전략적 핵심 포지션 제안, 강연 요청, 그리고 임팩트 있는 <br />커리큘럼 설계에 대해 언제든 열려 있습니다.
+          </p>
 
-        <AnimatePresence mode="wait">
-          {status === 'success' ? (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="mt-16 py-20 bg-surface-container border border-primary/20 space-y-6"
-            >
-              <span className="material-symbols-outlined text-6xl text-primary">check_circle</span>
-              <h3 className="text-3xl font-black tracking-tighter uppercase">Message Sent!</h3>
-              <p className="text-on-surface-variant max-w-sm mx-auto font-light">
-                Thank you for your inquiry. I will review your message and respond within 48 hours.
-              </p>
-              <button 
-                onClick={() => setStatus('idle')}
-                className="text-[10px] tracking-widest uppercase font-bold text-outline hover:text-white transition-colors"
+          <AnimatePresence mode="wait">
+            {status === 'success' ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="mt-16 py-20 bg-surface-container border border-primary/20 space-y-6"
               >
-                Send another message
-              </button>
-            </motion.div>
-          ) : (
-            <motion.form 
-              key="contact-form"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onSubmit={handleSubmit} 
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-16"
-            >
-              <div className="space-y-2">
-                <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Full Name</label>
-                <input
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
-                  placeholder="John Doe"
-                  type="text"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Email Address</label>
-                <input
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
-                  placeholder="john@example.com"
-                  type="email"
-                />
-              </div>
-              <div className="md:col-span-2 space-y-2">
-                <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Message</label>
-                <textarea
-                  required
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
-                  placeholder="Tell me about your vision..."
-                  rows={4}
-                ></textarea>
-              </div>
-              <div className="md:col-span-2 pt-8">
-                <button
-                  disabled={status === 'submitting'}
-                  className="w-full bg-primary text-on-primary py-6 font-black uppercase tracking-[0.2em] hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-4"
-                  type="submit"
-                >
-                  {status === 'submitting' ? (
-                    <>
-                      <span className="w-5 h-5 border-2 border-on-primary/30 border-t-on-primary rounded-full animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    'Send Inquiry'
-                  )}
-                </button>
-              </div>
-              {status === 'error' && (
-                <p className="md:col-span-2 text-red-500 text-xs text-center uppercase tracking-widest font-bold">
-                  Failed to send inquiry. Please try again later.
+                <span className="material-symbols-outlined text-6xl text-primary">check_circle</span>
+                <h3 className="text-3xl font-black tracking-tighter uppercase">메시지 전송 완료!</h3>
+                <p className="text-on-surface-variant max-w-sm mx-auto font-light">
+                  문의해 주셔서 감사합니다. 내용을 신중히 검토한 후 <br />48시간 이내에 회신하겠습니다.
                 </p>
-              )}
-            </motion.form>
-          )}
-        </AnimatePresence>
+                <button 
+                  onClick={() => setStatus('idle')}
+                  className="text-[10px] tracking-widest uppercase font-bold text-outline hover:text-white transition-colors"
+                >
+                  새로운 메시지 보내기
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form 
+                key="contact-form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onSubmit={handleSubmit} 
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mt-16"
+              >
+                <div className="space-y-2">
+                  <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Full Name</label>
+                  <input
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
+                    placeholder="이름을 입력해 주세요"
+                    type="text"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Email Address</label>
+                  <input
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
+                    placeholder="example@email.com"
+                    type="email"
+                  />
+                </div>
+                <div className="md:col-span-2 space-y-2">
+                  <label className="font-inter text-[10px] tracking-[0.05em] uppercase font-medium text-outline">Message</label>
+                  <textarea
+                    required
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full bg-transparent border-b border-outline-variant focus:border-primary outline-none py-3 text-lg transition-colors placeholder:text-surface-variant"
+                    placeholder="상세한 문의 내용을 남겨주세요..."
+                    rows={4}
+                  ></textarea>
+                </div>
+                <div className="md:col-span-2 pt-8">
+                  <button
+                    disabled={status === 'submitting'}
+                    className="w-full bg-primary text-on-primary py-6 font-black uppercase tracking-[0.2em] hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-4"
+                    type="submit"
+                  >
+                    {status === 'submitting' ? (
+                      <>
+                        <span className="w-5 h-5 border-2 border-on-primary/30 border-t-on-primary rounded-full animate-spin" />
+                        처리 중...
+                      </>
+                    ) : (
+                      '문의 보내기'
+                    )}
+                  </button>
+                </div>
+                {status === 'error' && (
+                  <p className="md:col-span-2 text-red-500 text-xs text-center uppercase tracking-widest font-bold">
+                    메시지 전송에 실패했습니다. 나중에 다시 시도해 주세요.
+                  </p>
+                )}
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
