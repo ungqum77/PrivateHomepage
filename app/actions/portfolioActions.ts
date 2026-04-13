@@ -14,7 +14,7 @@ export type PortfolioItem = {
   created_at: string;
 };
 
-export async function getPortfolioItems() {
+export async function getPortfolioItems(): Promise<PortfolioItem[]> {
   try {
     if (!supabase) {
       console.warn('Supabase is not configured. Returning empty portfolio.');
