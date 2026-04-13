@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Expertise from "@/components/Expertise";
+import EcommerceStats from "@/components/EcommerceStats";
 import VibeCoding from "@/components/VibeCoding";
 import Portfolio from "@/components/Portfolio";
 import Contact from "@/components/Contact";
@@ -18,6 +19,7 @@ export default async function Home() {
       <div className="pt-24">
         <Hero />
         <Expertise />
+        <EcommerceStats />
         <VibeCoding />
         <Portfolio items={items} />
         <Contact />

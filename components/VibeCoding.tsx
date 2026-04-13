@@ -2,8 +2,8 @@ import React from 'react';
 
 const VibeCoding = () => {
   return (
-    <section className="px-8 md:px-20 py-40 bg-black">
-      <div className="flex flex-col md:flex-row gap-20 mb-40">
+    <section className="px-8 md:px-20 pt-40 pb-0 bg-black">
+      <div className="flex flex-col md:flex-row gap-20 mb-20">
         <div className="flex-1">
           <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight mb-12 uppercase">VIBE CODING <br />EXPERT.</h2>
           <div className="space-y-12">

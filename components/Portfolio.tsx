@@ -8,7 +8,7 @@ interface PortfolioProps {
 
 const Portfolio = ({ items }: PortfolioProps) => {
   return (
-    <section id="portfolio" className="px-8 md:px-20 py-40 bg-black">
+    <section id="portfolio" className="px-8 md:px-20 pt-20 pb-40 bg-black">
       <div className="space-y-16">
         <div>
           <span className="text-[10px] tracking-ultra-wide uppercase font-bold text-outline">ARCHITECTURAL OUTPUT</span>
