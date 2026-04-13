@@ -33,7 +33,8 @@ export default async function Home() {
       description,
       url,
       tech_stack: techStack,
-      image_url: item.image_url || fallbackImage
+      // DB에 값이 있고 (null이 아니며 빈 문자열도 아닐 때) 우선 사용
+      image_url: (item.image_url && item.image_url.trim() !== "") ? item.image_url : fallbackImage
     };
   });
 
