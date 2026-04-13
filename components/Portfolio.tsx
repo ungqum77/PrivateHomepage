@@ -53,14 +53,14 @@ const PortfolioItemCard = ({ item }: { item: PortfolioItem }) => {
           <div className="w-1.5 h-1.5 rounded-full bg-zinc-600"></div>
         </div>
         
-        {/* Debug URL Overlay / Key Inspector */}
-        <div className="absolute top-5 left-0 right-0 z-40 bg-red-600 p-1 border-b border-white/20">
-          <p className="text-[8px] font-mono text-white leading-tight px-1">
+        {/* Debug URL Overlay / Full Data Inspector */}
+        <div className="absolute top-5 left-0 right-0 z-40 bg-red-600 p-1 border-b border-white/20 overflow-hidden">
+          <p className="text-[7px] font-mono text-white leading-tight px-1 whitespace-normal break-all">
             {imageUrl ? (
-              <span className="truncate block">[IMG] {imageUrl}</span>
+              <span className="block">[IMG] {imageUrl}</span>
             ) : (
-              <span className="block text-yellow-300 font-bold overflow-visible whitespace-normal">
-                [EMPTY] KEYS: {Object.keys(item).join(', ')}
+              <span className="block text-yellow-200">
+                [EMPTY] DATA: {JSON.stringify(item)}
               </span>
             )}
           </p>

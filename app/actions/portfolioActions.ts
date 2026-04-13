@@ -1,7 +1,7 @@
 'use server';
 
 import { supabase } from '@/lib/supabase';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, unstable_noStore as noStore } from 'next/cache';
 
 export type PortfolioItem = {
   id: string;
@@ -15,6 +15,7 @@ export type PortfolioItem = {
 };
 
 export async function getPortfolioItems(): Promise<PortfolioItem[]> {
+  noStore(); // 캐시를 완전히 무시하고 실시간 데이터를 가져오게 함
   try {
     if (!supabase) {
       console.warn('Supabase is not configured. Returning empty portfolio.');
