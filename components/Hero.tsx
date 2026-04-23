@@ -24,7 +24,7 @@ const Hero = () => {
           <img
             alt="Professional Portrait of Executive"
             className="w-full h-full object-cover object-top"
-            src="https://lh3.googleusercontent.com/aida/ADBb0ugMaXjc4hqN0jCtOhGJ-_pDjH_xzwjdYdHITiYhA0wCzzqdAwn469M_IHvruEFHyFc3HWm-HN01Y0Km_uu0E1h6kfTHhQcZ7wxumJBjmdTmo52uvfeYMVjog2QWNa0sPREc2yXfM-lwMupoRoRrnRc-VHA3w_yAcRU37kXNHuo4oHFBkYGuPrEIte8lEaY8CfuXDrFdxG5RXs0zBz7aW6M2S6cq8iLpKvJ8Z3rifjvaca3GuVF0oNjXNtpys69559KB1k1-by6fEg"
+            src="/photo.jpg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
         </div>
